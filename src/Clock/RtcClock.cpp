@@ -1,21 +1,21 @@
 #include "RtcClock.h"
 #include "Time.h"
-#include "DS3232RTC.h"
-
-// DS3232RTC rtc;
 
 RtcClock::RtcClock() {
-  // setSyncProvider(RTC.get);
-  //setSyncProvider(RTC.get);
-  // rtc = DS3232RTC();
-  // RTC.squareWave(SQWAVE_1_HZ);
+}
+
+void RtcClock::begin() {
+  rtc.squareWave(SQWAVE_1_HZ);
   Serial.println("Setting squareWave");
+
+  setSyncProvider(rtc.get);
 }
 
 Time RtcClock::getTime() {
   Time time;
-  time.hour = 12;
-  time.minute = 0;
+  time.hour = hour();
+  time.minute = minute();
+  time.second = second();
 
   return time;
 }
