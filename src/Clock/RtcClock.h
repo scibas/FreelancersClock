@@ -7,6 +7,4 @@ public:
   void begin();
 
   Time getTime();
-  DS3232RTC rtc;
-
 };

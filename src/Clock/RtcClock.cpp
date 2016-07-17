@@ -5,10 +5,8 @@ RtcClock::RtcClock() {
 }
 
 void RtcClock::begin() {
-  rtc.squareWave(SQWAVE_1_HZ);
-  Serial.println("Setting squareWave");
-
-  setSyncProvider(rtc.get);
+  RTC.squareWave(SQWAVE_1_HZ);
+  setSyncProvider(RTC.get);
 }
 
 Time RtcClock::getTime() {
