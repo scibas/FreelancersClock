@@ -20,7 +20,7 @@ void loop() {}
 
 void rtcTimeDidChange() {
 
-   Time time = clock.getTime();
+  Time time = clock.getTime();
 
   char timeString[8];
   sprintf(timeString, "%d:%02d:%02d", time.hour, time.minute , time.second);
