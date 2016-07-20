@@ -1,9 +1,11 @@
 #include "Arduino.h"
 #include "Clock/RtcClock.h"
+#include "Display/PCD8544Driver.h"
 #include <Wire.h>
 #include <DS3232RTC.h>
 
 RtcClock clock;
+PCD8544Driver displayDriver;
 
 void rtcTimeDidChange();
 
@@ -14,6 +16,8 @@ void setup() {
   pinMode(2, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(2), rtcTimeDidChange, FALLING);
   clock.begin();
+
+  displayDriver.begin();
 }
 
 void loop() {}
